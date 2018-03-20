@@ -1,0 +1,158 @@
+<!--
+Author: paranoidinferno
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rahul's Trucking</title>
+<meta charset="utf-8">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$("document").ready(function(){
+	
+	$("#mobile").blur(function(){
+		var val = mobile.value
+	if (/^\d{10}$/.test(val)) {
+		// value is ok, use it
+		if(val >= 7201001000 && val <= 9999999999){
+			//do nothing
+		}else{
+			
+			document.getElementById("mobilemsg_area").innerHTML = "Invalid mobile number.";
+			
+		}
+	} else {
+		document.getElementById("mobilemsg_area").innerHTML = "Mobile number should be 10 digits.";
+		return false
+	}
+	});
+	
+	$("#email").blur(function(){
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(email.value) == false) 
+        {
+            document.getElementById("emailmsg_area").innerHTML = "Invalid email address.";
+            return false;
+        }
+
+        return true;
+	});
+	
+	$("#pwd2").blur(function(){
+
+		if(pwd.value != pwd2.value){
+				document.getElementById("password2msg_area").innerHTML = "Passwords don't match!";
+		}else{
+				document.getElementById("password2msg_area").innerHTML = "Yay! Passwords match. You are good to go.";
+		}	
+	});
+	
+	$("#username").blur(function(){
+		var username_input = username.value;
+		if (username_input == "") {
+        document.getElementById("usernamemsg_area").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+			
+				if(this.responseText == "true"){
+					document.getElementById("usernamemsg_area").innerHTML = "Username not available. Please try a new name.";
+				}else{
+					document.getElementById("usernamemsg_area").innerHTML = "Username available. Enjoy.";
+				}
+			
+            }
+        };
+        xmlhttp.open("GET","username_availability.php?query="+username_input,true);
+        xmlhttp.send();
+    }
+	});
+	
+});
+
+</script>
+</head>
+<body>
+
+	<div id="main_div" align="center">
+		<form action="driver_registration.php" method="post" align="center">
+			<table id="table1" align="center">
+				<tr>
+					<td align="left">Username :</td>
+					<td align="left"><input required type="text" id="username" name="username" onblur="showUsername(this.value);"></td>
+					<td align="left"><p id="usernamemsg_area" name="usernamemsg_area">Message appears here.</p></td>
+				</tr>
+	
+				<tr>
+					<td align="left">Password :</td>
+					<td align="left"><input required type="password" id="pwd" name="pwd"></td>
+					<td align="left"><p id="passwordmsg_area" name="passwordmsg_area">Message appears here.</p></td>
+				</tr>
+				
+				<tr>
+					<td align="left">Retype Password :</td>
+					<td align="left"><input required type="password" id="pwd2" name="pwd2"></td>
+					<td align="left"><p id="password2msg_area" name="password2msg_area">Message appears here.</p></td>
+				</tr>
+	
+	
+				<tr>
+					<td align="left">Name :</td>
+					<td align="left"><input required type="text" id="name" name="name"></td>
+					<td align="left"><p id="namemsg_area" name="namemsg_area">Message appears here.</p></td>
+				</tr>
+	
+				<tr>
+					<td align="left">Date of Birth :</td>
+					<td align="left"><input required type="date" id="dob" name="dob"></td>
+					<td align="left"><p id="dobmsg_area" name="dobmsg_area">Message appears here.</p></td>
+				</tr>
+	
+				<tr>
+					<td align="left">Address :</td>
+					<td align="left"><input required type="text" id="addr" name="addr"></td>
+					<td align="left"><p id="addrmsg_area" name="addrmsg_area">Message appears here.</p></td>
+				</tr>
+	
+				<tr>
+					<td align="left">Mobile :</td>
+					<td align="left"><input required type="text" id="mobile" name="mobile"></td>
+					<td align="left"><p id="mobilemsg_area" name="mobilemsg_area">Message appears here.</p></td>
+				</tr>
+	
+	
+				<tr>
+					<td align="left">Email :</td>
+					<td align="left"><input required type="text" id="email" name="email"></td>
+					<td align="left"><p id="emailmsg_area" name="emailmsg_area">Message appears here.</p></td>
+				</tr>
+	
+				<tr>
+					<td align="left">Driving License Number :</td>
+					<td align="left"><input required type="text" id="dl" name="dl"></td>
+					<td align="left"><p id="dlmsg_area" name="dlmsg_area">Message appears here.</p></td>
+				</tr>
+	
+				
+				<tr>
+					<td align="center"></td>
+					<td align="center"><input required type="submit" value="Submit"></td>
+					<td align="center"></td>
+				</tr>
+	
+			</table>
+		</form>
+	</div>
+</body>
+</html>
