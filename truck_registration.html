@@ -1,0 +1,83 @@
+<!--
+Author: paranoidinferno
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rahul's Trucking</title>
+<meta charset="utf-8">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script>
+function testfunction(){
+	
+	var x = document.getElementsByName("mobile");
+	if(x < 200){
+		window.alert("invalid input" + x);
+	}
+}
+</script>
+</head>
+<body>
+
+<div id="main_div" align="center">
+	<form action="truck_registration.php" method="post">
+		<table id="table1" align="center">
+				<tr>
+					<td align="left">Truck Make:</td>
+					<td align="left">
+					<select required name="truck_make" id="truck_make">
+						<option value="VOLVO">VOLVO</option>
+						<option value="SCANIA">SCANIA</option>
+						<option value="MERCEDES BENZ">MERCEDES BENZ</option>
+						<option value="RENAULT">RENAULT</option>
+						<option value="MAN">MAN</option>
+						<option value="DAF">DAF</option>
+						<option value="IVECO">IVECO</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">Truck Model:</td>
+					<td align="left">
+					<select required name="truck_model" id="truck_model">
+						<option value="FH">FH</option>
+						<option value="FH16">FH16</option>
+						<option value="R200">R200</option>
+						<option value="R350">R350</option>
+						<option value="ACTROSS">ACTROSS</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="left">Registration Number :</td>
+					<td align="left"><input required type="text" name="truck_registration_number" id="truck_registration_number"></td>
+				</tr>
+				
+				
+				<tr>
+					<td align="left">Power :</td>
+					<td align="left"><input required type="text" name="truck_power" id="truck_power"></td>
+				</tr>
+				
+				<tr>
+					<td align="left">Fitness Validity :</td>
+					<td align="left"><input required type="date" name="truck_fitness_validity" id="truck_fitness_validity"></td>
+				</tr>
+				
+				<tr>
+					<td align="center"><input type="submit" value="Submit"></td>
+				</tr>
+				
+		</table>
+	
+	</form>
+</div>
+
+
+</body>
+</html>
