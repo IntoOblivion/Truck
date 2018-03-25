@@ -31,7 +31,7 @@ try{
 	$statement->bindParam(':address', $_POST['addr'],PDO::PARAM_STR);
 	$statement->bindParam(':mobile', $_POST['mobile'],PDO::PARAM_STR);
 	$statement->bindParam(':email', $_POST['email'],PDO::PARAM_STR);
-	$statement->bindParam(':driving_license_number', $_POST['dl'],PDO::PARAM_STR);
+	$statement->bindParam(':driving_license_number', $_POST['dlnum'],PDO::PARAM_STR);
 	$statement->bindParam(':username', $_POST['username'],PDO::PARAM_STR);
 	$statement->execute();
 	
