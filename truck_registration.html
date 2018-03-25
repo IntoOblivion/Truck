@@ -8,7 +8,8 @@ Author: paranoidinferno
 <meta charset="utf-8">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="truck_registration.js"></script>
+<!--script src="truck_registration.js"></script-->
+<script type="text/javascript" src="test_ms.js"></script>
 </head>
 <body>
 
@@ -18,14 +19,11 @@ Author: paranoidinferno
 				<tr>
 					<td align="left">Truck Make:</td>
 					<td align="left">
-					<select required name="truck_make" id="truck_make">
+					<select required name="truck_make" id="truck_make" onChange="changemodel(this.value);">
+						<option value="" disabled selected>Select</option>
 						<option value="VOLVO">VOLVO</option>
 						<option value="SCANIA">SCANIA</option>
-						<option value="MERCEDES BENZ">MERCEDES BENZ</option>
-						<option value="RENAULT">RENAULT</option>
-						<option value="MAN">MAN</option>
-						<option value="DAF">DAF</option>
-						<option value="IVECO">IVECO</option>
+						<option value="MERCEDES">MERCEDES BENZ</option>
 					</select>
 					</td>
 				</tr>
@@ -34,11 +32,7 @@ Author: paranoidinferno
 					<td align="left">Truck Model:</td>
 					<td align="left">
 					<select required name="truck_model" id="truck_model">
-						<option value="FH">FH</option>
-						<option value="FH16">FH16</option>
-						<option value="R200">R200</option>
-						<option value="R350">R350</option>
-						<option value="ACTROSS">ACTROSS</option>
+						<option value="" disabled selected>Select</option>
 					</select>
 					</td>
 				</tr>
