@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
 Author: paranoidinferno
 */
@@ -26,8 +27,12 @@ try{
 	
 	if (password_verify($temp_password, $retrieved_password)) {
 		echo 'Password is valid!';
+		$_SESSION["user"] = $temp_username ;
+		header('Location: http://localhost/truck/driver_home.php');
 	} else {
 		echo 'Invalid password.';
+		session_unset();
+		session_destroy();
 	}
 	
 	
