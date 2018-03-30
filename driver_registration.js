@@ -96,4 +96,32 @@ $("document").ready(function(){
     }
 	});
 	
+	var myInput = document.getElementById("pwd");
+
+	// When the user clicks on the password field, show the message box
+	myInput.onfocus = function() {
+		myInput.style.borderColor = "red";
+	}
+
+	// When the user clicks outside of the password field, hide the message box
+	myInput.onblur = function() {
+		myInput.style.border = "1px solid #ccc";
+	}
+
+	// When the user starts to type something inside the password field
+	myInput.onkeyup = function() {
+		// Validate pattern
+		var lowerCaseLetters = /[a-z]/g;
+		var upperCaseLetters = /[A-Z]/g;
+		var specialChar = /[$@$!%*?&#^]/g;
+		if(myInput.value.match(lowerCaseLetters) &&
+		myInput.value.match(upperCaseLetters) &&
+		myInput.value.match(specialChar) &&
+		myInput.value.length >= 8) {
+			myInput.style.border = "1px solid #ccc";
+		} else {
+			myInput.style.borderColor = "red";
+		}
+	}
+
 });

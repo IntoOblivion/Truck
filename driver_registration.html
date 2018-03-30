@@ -25,7 +25,7 @@ Author: paranoidinferno
 	
 				<tr>
 					<td align="left">Password :</td>
-					<td align="left"><input required type="password" id="pwd" name="pwd"></td>
+					<td align="left"><input type="password" id="pwd" name="pwd" pattern="(?=.*[$@$!%*?&#^])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one uppercase and lowercase letter and one special character, and at least 8 or more characters" required></td>
 					<td align="left"><p id="passwordmsg_area" name="passwordmsg_area">Message appears here.</p></td>
 				</tr>
 				
